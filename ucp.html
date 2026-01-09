@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UCP • Los Santos Roleplay</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#e8e6e3;
+  --bg:#0b0c0c;
+  --card:rgba(255,255,255,.04);
+  --border:rgba(255,255,255,.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,.05), transparent 60%),
+    var(--bg);
+  color:var(--accent);
+  font-family:'Poppins',sans-serif;
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 28px;
+  border-bottom:1px solid var(--border);
+}
+
+.logo{
+  font-family:'Orbitron';
+  font-size:18px;
+}
+
+.topbar a{
+  color:var(--accent);
+  text-decoration:none;
+  font-size:13px;
+  opacity:.8;
+}
+
+.topbar a:hover{
+  opacity:1;
+}
+
+/* ===== LAYOUT ===== */
+.wrapper{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  min-height:calc(100vh - 60px);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  border-right:1px solid var(--border);
+  padding:26px 20px;
+}
+
+.sidebar h3{
+  font-size:12px;
+  letter-spacing:1px;
+  opacity:.6;
+  margin-bottom:18px;
+}
+
+.menu a{
+  display:block;
+  padding:12px 14px;
+  margin-bottom:8px;
+  background:var(--card);
+  border:1px solid var(--border);
+  text-decoration:none;
+  color:var(--accent);
+  font-size:13px;
+}
+
+.menu a:hover{
+  background:rgba(255,255,255,.08);
+}
+
+/* ===== CONTENT ===== */
+.content{
+  padding:40px;
+}
+
+.content h1{
+  font-family:'Orbitron';
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.sub{
+  opacity:.6;
+  font-size:13px;
+  margin-bottom:32px;
+}
+
+/* ===== STATS ===== */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.stat{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:20px;
+}
+
+.stat h2{
+  font-size:22px;
+  margin-bottom:6px;
+}
+
+.stat span{
+  font-size:12px;
+  opacity:.6;
+}
+
+/* ===== CHARACTERS ===== */
+.section{
+  margin-top:60px;
+}
+
+.char-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.char{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:20px;
+}
+
+.char h3{
+  margin-bottom:6px;
+  font-size:15px;
+}
+
+.char p{
+  font-size:12px;
+  opacity:.6;
+  margin-bottom:14px;
+}
+
+.char button{
+  width:100%;
+  padding:10px;
+  background:transparent;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  font-size:12px;
+  cursor:pointer;
+}
+
+.char button:hover{
+  background:var(--accent);
+  color:#000;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .wrapper{
+    grid-template-columns:1fr;
+  }
+  .sidebar{
+    border-right:none;
+    border-bottom:1px solid var(--border);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="logo">LSRP • UCP</div>
+  <a href="index.html">Back to Website</a>
+</div>
+
+<div class="wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h3>ACCOUNT</h3>
+    <div class="menu">
+      <a href="#">Dashboard</a>
+      <a href="#">My Characters</a>
+      <a href="#">Create Character</a>
+      <a href="#">Change Password</a>
+      <a href="#">Logout</a>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <h1>Welcome, Player</h1>
+    <div class="sub">User Control Panel • Los Santos Roleplay</div>
+
+    <div class="stats">
+      <div class="stat">
+        <h2>2</h2>
+        <span>Characters</span>
+      </div>
+      <div class="stat">
+        <h2>120</h2>
+        <span>Hours Played</span>
+      </div>
+      <div class="stat">
+        <h2>Citizen</h2>
+        <span>Account Status</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h1>Characters</h1>
+      <div class="sub">Manage your in-game characters</div>
+
+      <div class="char-grid">
+        <div class="char">
+          <h3>John Ramirez</h3>
+          <p>Level 5 • Los Santos</p>
+          <button>Manage Character</button>
+        </div>
+
+        <div class="char">
+          <h3>Create New Character</h3>
+          <p>Slot available</p>
+          <button>Create</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
