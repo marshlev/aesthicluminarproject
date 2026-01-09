@@ -8,163 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-.factions{
-  max-width:1000px;
-  margin:120px auto;
-  padding:0 20px;
-}
-
-.factions h2{
-  text-align:center;
-  font-family:'Orbitron';
-  margin-bottom:36px;
-}
-
-.faction-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.faction-card{
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.08);
-  padding:22px;
-  transition:.25s;
-}
-
-.faction-card:hover{
-  transform:translateY(-4px);
-  background:rgba(255,255,255,.06);
-}
-
-.faction-card h3{
-  font-size:15px;
-  margin-bottom:8px;
-}
-.forum-preview{
-  max-width:900px;
-  margin:80px auto 120px;
-  padding:0 20px;
-}
-
-.forum-preview h2{
-  font-family:'Orbitron';
-  text-align:center;
-  margin-bottom:24px;
-}
-
-.forum-item{
-  display:flex;
-  justify-content:space-between;
-  padding:14px 18px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  font-size:13px;
-}
-
-.forum-item span{
-  color:#8a8a8a;
-}
-
-.forum-link{
-  display:block;
-  margin:22px auto 0;
-  text-align:center;
-  text-decoration:none;
-  color:var(--accent);
-  font-size:13px;
-}
-.bg{
-  position:fixed;
-  inset:0;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.9)),
-    url("bg-gta.jpg") center/cover no-repeat;
-  transform:translateZ(0);
-  will-change:transform;
-}
-/* FILM GRAIN */
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  z-index:999;
-}
-/* FORCE OFF-WHITE ACCENT */
-.logo,
-.nav a:hover,
-.play-btn,
-.btn,
-.stat-box h3,
-.btn-outline,
-.hero h1{
-  color:var(--accent) !important;
-}
-
-.play-btn,
-.btn{
-  background:var(--accent) !important;
-  color:#000 !important;
-}
-
-.btn-outline{
-  border:1px solid var(--accent) !important;
-  background:transparent !important;
-}
-
-.hero h1{
-  text-shadow:0 0 16px var(--accent-soft) !important;
-}
+/* ===== ROOT ===== */
 :root{
   --accent:#e6e1d8;
-  --accent-soft:rgba(230,225,216,.25);
-}
-.bg::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at top, rgba(230,225,216,.08), transparent 45%),
-    linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85));
-}
-.stat-box h3{
-  color:var(--accent);
-}
-.hero h1{
-  text-shadow:0 0 18px var(--accent-soft);
-}
-.hero h1{
-  text-shadow:0 0 18px var(--accent-soft);
-}
-.play-btn{
-  background:var(--accent);
-  color:#000!important;
-}
-
-.btn{
-  background:var(--accent);
-  color:#000;
-}
-
-.btn-outline{
-  border:1px solid var(--accent);
-  color:var(--accent);
-}
-.nav a:hover{
-  color:var(--accent);
-}
-.logo{
-  color:var(--accent);
-}
-:root{
-  --accent:#e6e1d8;          /* off white utama */
   --accent-soft:rgba(230,225,216,.25);
   --text-main:#e5e5e5;
   --text-muted:#9a9a9a;
   --bg-card:rgba(0,0,0,.55);
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
@@ -173,18 +25,14 @@ body{
   background:#000;
 }
 
-/* ===== BACKGROUND LAYER ===== */
-.bg {
-  position: fixed;
-  inset: 0;
+/* ===== BACKGROUND ===== */
+.bg{
+  position:fixed;
+  inset:0;
   background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.65),
-      rgba(0,0,0,0.85)
-    ),
+    linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.85)),
     url("bg-gta.jpg") center/cover no-repeat;
-  z-index: -2;
+  z-index:-2;
 }
 
 .bg::after{
@@ -192,9 +40,18 @@ body{
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at top, rgba(0,234,255,.08), transparent 40%),
-    radial-gradient(circle at bottom, rgba(0,0,0,.8), transparent 60%);
-  z-index:-1;
+    radial-gradient(circle at top, rgba(230,225,216,.08), transparent 45%),
+    linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85));
+}
+
+/* FILM GRAIN */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  z-index:999;
 }
 
 /* ===== NAVBAR ===== */
@@ -210,7 +67,7 @@ body{
 .logo{
   font-family:'Orbitron';
   font-size:22px;
-  color:#00eaff;
+  color:var(--accent);
 }
 
 .nav{
@@ -224,26 +81,36 @@ body{
   font-size:14px;
 }
 
-.nav a:hover{color:#00eaff}
+.nav a:hover{color:var(--accent)}
 
-.play-btn{
-  background:#00eaff;
+.play-btn,
+.btn{
+  background:var(--accent);
   color:#000!important;
-  padding:6px 14px;
-  border-radius:6px;
+  padding:8px 16px;
+  border-radius:8px;
   font-weight:600;
+  text-decoration:none;
+}
+
+.btn-outline{
+  border:1px solid var(--accent);
+  color:var(--accent);
+  padding:8px 16px;
+  border-radius:8px;
+  text-decoration:none;
 }
 
 /* ===== HERO ===== */
 .hero{
-  padding:100px 20px 60px;
+  padding:110px 20px 60px;
   text-align:center;
 }
 
 .hero h1{
   font-family:'Orbitron';
   font-size:46px;
-  text-shadow:0 0 20px rgba(0,234,255,.25);
+  text-shadow:0 0 18px var(--accent-soft);
 }
 
 .hero p{
@@ -258,23 +125,6 @@ body{
   justify-content:center;
   gap:16px;
   flex-wrap:wrap;
-}
-
-.btn{
-  background:#00eaff;
-  color:#000;
-  padding:10px 24px;
-  border-radius:8px;
-  font-weight:600;
-  text-decoration:none;
-}
-
-.btn-outline{
-  border:1px solid #00eaff;
-  color:#00eaff;
-  padding:10px 24px;
-  border-radius:8px;
-  text-decoration:none;
 }
 
 /* ===== STATS ===== */
@@ -292,13 +142,12 @@ body{
   border-radius:14px;
   padding:20px;
   text-align:center;
-  backdrop-filter:blur(6px);
   border:1px solid rgba(255,255,255,.06);
 }
 
 .stat-box h3{
   font-size:24px;
-  color:#00eaff;
+  color:var(--accent);
 }
 
 .stat-box p{
@@ -331,7 +180,6 @@ body{
   padding:22px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.06);
-  backdrop-filter:blur(6px);
 }
 
 .feature h4{
@@ -339,25 +187,20 @@ body{
   margin-bottom:8px;
 }
 
-.feature p{
-  font-size:13px;
-  color:#a0a0a0;
-}
-
-/* ===== ACTIVITY ===== */
-.activity{
+/* ===== FORUM PREVIEW ===== */
+.forum-preview{
   max-width:900px;
-  margin:70px auto 100px;
+  margin:80px auto;
   padding:0 20px;
 }
 
-.activity h2{
+.forum-preview h2{
   font-family:'Orbitron';
-  margin-bottom:20px;
   text-align:center;
+  margin-bottom:24px;
 }
 
-.activity-item{
+.forum-item{
   display:flex;
   justify-content:space-between;
   padding:14px 18px;
@@ -365,8 +208,47 @@ body{
   font-size:13px;
 }
 
-.activity-item span{
+.forum-item span{
   color:#8a8a8a;
+}
+
+.forum-link{
+  display:block;
+  margin:22px auto 0;
+  text-align:center;
+  text-decoration:none;
+  color:var(--accent);
+}
+
+/* ===== FACTIONS ===== */
+.factions{
+  max-width:1000px;
+  margin:120px auto;
+  padding:0 20px;
+}
+
+.factions h2{
+  text-align:center;
+  font-family:'Orbitron';
+  margin-bottom:36px;
+}
+
+.faction-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.faction-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  padding:22px;
+  transition:.25s;
+}
+
+.faction-card:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,.06);
 }
 
 /* MOBILE */
@@ -374,24 +256,36 @@ body{
   .hero h1{font-size:34px}
 }
 </style>
-</head>
 
-<body><script>
+<script>
+function register(){
+  localStorage.setItem("lsrp_registered","true");
+  alert("Register success. Discord linked.");
+}
+
+function accessForum(){
+  if(localStorage.getItem("lsrp_registered") === "true"){
+    alert("Forum unlocked (preview only)");
+  }else{
+    alert("You must register / join Discord first.");
+  }
+}
+
 window.addEventListener("scroll",()=>{
   document.querySelector(".bg").style.transform =
     "translateY(" + window.scrollY * 0.15 + "px)";
 });
 </script>
+</head>
 
+<body>
 <div class="bg"></div>
 
 <header class="navbar">
   <div class="logo">LSRP</div>
   <nav class="nav">
     <a href="index.html">Home</a>
-    <a href="forum.html">Forum</a>
-    <a href="ucp.html">UCP</
-    <a href="#">Register</a>
+    <a href="#" onclick="register()" class="btn">Register</a>
     <a href="#" class="play-btn">Play</a>
   </nav>
 </header>
@@ -400,108 +294,43 @@ window.addEventListener("scroll",()=>{
   <h1>Los Santos Roleplay</h1>
   <p>Premium GTA SA-MP Roleplay Server Indonesia</p>
   <div class="hero-buttons">
-    <a href="#" class="btn">Join Discord</a>
-    <a href="forum.html" class="btn-outline">Forum</a>
+    <a href="#" onclick="register()" class="btn">Join Discord</a>
+    <a href="#" onclick="accessForum()" class="btn-outline">Forum</a>
   </div>
 </section>
 
 <section class="stats">
-  <div class="stat-box">
-    <h3>342</h3>
-    <p>Players Online</p>
-  </div>
-  <div class="stat-box">
-    <h3>1000</h3>
-    <p>Registered Accounts</p>
-  </div>
-  <div class="stat-box">
-    <h3>24/7</h3>
-    <p>Server Status</p>
-  </div>
-  <div class="stat-box">
-    <h3>2019</h3>
-    <p>Established</p>
-  </div>
+  <div class="stat-box"><h3>342</h3><p>Players Online</p></div>
+  <div class="stat-box"><h3>1000</h3><p>Registered Accounts</p></div>
+  <div class="stat-box"><h3>24/7</h3><p>Server Status</p></div>
+  <div class="stat-box"><h3>2019</h3><p>Established</p></div>
 </section>
 
 <section class="features">
   <h2>Server Features</h2>
   <div class="feature-grid">
-    <div class="feature">
-      <h4>Serious Roleplay</h4>
-      <p>Long-term character development with strict RP rules.</p>
-    </div>
-    <div class="feature">
-      <h4>Balanced Economy</h4>
-      <p>Stable progression and realistic financial system.</p>
-    </div>
-    <div class="feature">
-      <h4>Active Staff</h4>
-      <p>Professional team maintaining fair gameplay.</p>
-    </div>
-    <div class="feature">
-      <h4>Custom Mapping</h4>
-      <p>Exclusive interiors and city development.</p>
-    </div>
+    <div class="feature"><h4>Serious Roleplay</h4></div>
+    <div class="feature"><h4>Balanced Economy</h4></div>
+    <div class="feature"><h4>Active Staff</h4></div>
+    <div class="feature"><h4>Custom Mapping</h4></div>
   </div>
 </section>
 
-<section class="activity">
-  <h2>Latest Activity</h2>
-  <div class="activity-item">
-    <div>Faction recruitment opened</div>
-    <span>2 hours ago</span>
-  </div>
-  <div class="activity-item">
-    <div>Server update deployed</div>
-    <span>Yesterday</span>
-  </div>
-  <div class="activity-item">
-    <div>New player registered</div>
-    <span>2 days ago</span>
-  </div>
-</section><section class="forum-preview">
+<section class="forum-preview">
   <h2>Latest Forum Threads</h2>
+  <div class="forum-item"><div>Server Opening & Rules</div><span>Today</span></div>
+  <div class="forum-item"><div>Faction Recruitment</div><span>2 hours ago</span></div>
+  <div class="forum-item"><div>New Player Guide</div><span>Yesterday</span></div>
+  <a href="#" onclick="accessForum()" class="forum-link">View full forum</a>
+</section>
 
-  <div class="forum-item">
-    <div>Server Opening & Rules</div>
-    <span>Administrator · Today</span>
-  </div>
-
-  <div class="forum-item">
-    <div>Faction Recruitment</div>
-    <span>Community · 2 hours ago</span>
-  </div>
-
-  <div class="forum-item">
-    <div>New Player Guide</div>
-    <span>Support Team · Yesterday</span>
-  </div>
-
-  <a href="forum.html" class="forum-link">View full forum</a>
-</section><section class="factions">
+<section class="factions">
   <h2>City Factions</h2>
-
   <div class="faction-grid">
-    <div class="faction-card">
-      <h3>Los Santos Police Department</h3>
-      <p>Law enforcement & city security</p>
-    </div>
-
-    <div class="faction-card">
-      <h3>Emergency Medical Services</h3>
-      <p>Medical roleplay & rescue operations</p>
-    </div>
-
-    <div class="faction-card">
-      <h3>Government of Los Santos</h3>
-      <p>City management & administration</p>
-    </div>
-
-    <div class="faction-card">
-      <h3>News & Media Network</h3>
-      <p>Broadcast & journalism roleplay</p>
-    </div>
+    <div class="faction-card"><h3>LSPD</h3></div>
+    <div class="faction-card"><h3>EMS</h3></div>
+    <div class="faction-card"><h3>Government</h3></div>
+    <div class="faction-card"><h3>Media Network</h3></div>
   </div>
 </section>
 
