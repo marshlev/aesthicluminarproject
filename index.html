@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
+<head><script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+});
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Server RP</title>
-
-  <!-- PROTECT LOGIN -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      if (localStorage.getItem("loggedIn") !== "true") {
-        location.replace("login.html");
-      }
-    });
-  </script>
 
   <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -20,94 +17,30 @@
   <!-- ICON -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-  * {
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background:
-      radial-gradient(circle at center,
-      #a64a2f 0%,
-      #5a2a15 40%,
-      #120a05 75%,
-      #000 100%);
-    color: #fff;
-  }
-
-  .container {
-    max-width: 420px;
-    margin: auto;
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  .logo {
-    width: 180px;
-    margin: 40px auto 35px;
-  }
-
-  .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px;
-    border-radius: 14px;
-    margin-bottom: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    color: #fff;
-    box-shadow: 0 6px 12px rgba(0,0,0,.4);
-    cursor: pointer;
-  }
-
-  .discord { background: #5865f2; }
-  .play { background: #2e8b57; }
-  .dark { background: rgba(0,0,0,.6); }
-
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .social {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    margin: 30px 0;
-  }
-
-  .social a {
-    font-size: 26px;
-    color: #fff;
-    opacity: .9;
-  }
-
-  footer {
-    font-size: 11px;
-    opacity: .65;
-    line-height: 1.6;
-  }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
+<script>
+function logoutConfirm() {
+  if (confirm("Yakin mau logout?")) {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("loginTime");
+    window.location.href = "login.html";
+  }
+}
+</script>
 <body>
-
+<a class="btn dark" onclick="logout()">
+  <i class="fa-solid fa-right-from-bracket"></i>
+  Logout
+</a>
   <div class="container">
 
-    <!-- LOGOUT -->
-    <a class="btn dark" onclick="logoutConfirm()">
-      <i class="fa-solid fa-right-from-bracket"></i>
-      Logout
-    </a>
+    <!-- LOGO -->
+    <img src="https://i33.servimg.com/u/f33/20/60/19/21/lumina10.png"
+     class="logo"
+     alt="Lumina RP Logo">
 
-    <img src="logo.png" class="logo" alt="Server Logo">
-
+    <!-- BUTTONS -->
     <a class="btn discord">
       <i class="fa-brands fa-discord"></i>
       Join Our Discord
@@ -118,10 +51,12 @@
       Play Now
     </a>
 
+    <!-- GRID -->
     <div class="grid">
-      <a href="get-started.html" class="btn dark">
-        <i class="fa-solid fa-book"></i>
-        Get Started
+        <a href="get-started.html" class="btn dark">
+  <i class="fa-solid fa-book"></i>
+  Get Started
+</a>
       </a>
 
       <a class="btn dark">
@@ -130,17 +65,19 @@
       </a>
     </div>
 
-    <a class="btn dark">
+    <a class="btn dark full">
       <i class="fa-solid fa-book-open"></i>
       Server Guidance
     </a>
 
+    <!-- SOCIAL -->
     <div class="social">
       <a href="#"><i class="fa-brands fa-youtube"></i></a>
       <a href="#"><i class="fa-brands fa-instagram"></i></a>
       <a href="#"><i class="fa-solid fa-dollar-sign"></i></a>
     </div>
 
+    <!-- FOOTER -->
     <footer>
       GRAND THEFT AUTO is a registered trademark of Take-Two Interactive Software.  
       This server is not affiliated with or endorsed by Take-Two Interactive Software.
@@ -150,15 +87,139 @@
 
   </div>
 
-  <!-- LOGOUT SCRIPT -->
-  <script>
-    function logoutConfirm() {
-      if (confirm("Yakin mau logout?")) {
-        localStorage.clear();
-        location.replace("login.html");
-      }
-    }
-  </script>
-
 </body>
 </html>
+<style>* {
+  rgba(255, 0, 0, 0.8)
+rgba(0, 120, 255, 0.8)
+  animation: sirenFlash 4s
+  .logo {
+  width: 170px;
+  margin: 30px auto 35px;
+  display: block;
+  filter: drop-shadow(0 0 25px rgba(255, 140, 0, 0.6));
+}
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* POLICE SIREN GLOW */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -30%;
+  background:
+    radial-gradient(circle at 20% 40%, rgba(255, 0, 0, 0.65), transparent 40%),
+    radial-gradient(circle at 80% 40%, rgba(0, 120, 255, 0.65), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(255, 220, 0, 0.45), transparent 45%),
+    radial-gradient(circle at 30% 70%, rgba(0, 255, 170, 0.45), transparent 45%);
+  animation: sirenFlash 6s ease-in-out infinite alternate;
+  filter: blur(35px);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
+
+/* FAST & BRIGHT */
+@keyframes sirenFlash {
+  0% {
+    transform: translate(-8%, 0) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(8%, -4%) scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-4%, 6%) scale(1.2);
+    opacity: 0.9;
+  }
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at center,
+      #a64a2f 0%,
+      #5a2a15 40%,
+      #120a05 75%,
+      #000 100%
+    );
+  color: #fff;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* LOGO */
+.logo {
+  width: 180px;
+  margin: 40px auto 35px;
+}
+
+/* BUTTON */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(0,0,0,.4);
+}
+
+/* COLORS */
+.discord { background: #5865f2; }
+.play { background: #2e8b57; }
+.dark { background: rgba(0,0,0,.6); }
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* SOCIAL */
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 30px 0;
+}
+
+.social a {
+  font-size: 26px;
+  color: #fff;
+  opacity: .9;
+}
+
+/* FOOTER */
+footer {
+  font-size: 11px;
+  opacity: .65;
+  line-height: 1.6;
+}</style
