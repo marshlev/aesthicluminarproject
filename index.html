@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
-<head><script>
-document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "login.html";
-  }
-});
-</script>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Server RP</title>
+
+  <!-- PROTECT LOGIN -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (localStorage.getItem("loggedIn") !== "true") {
+        location.replace("login.html");
+      }
+    });
+  </script>
 
   <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -17,28 +20,94 @@ document.addEventListener("DOMContentLoaded", function () {
   <!-- ICON -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<script>
-function logoutConfirm() {
-  if (confirm("Yakin mau logout?")) {
-    localStorage.removeItem("loggedIn");
-    localStorage.removeItem("loginTime");
-    window.location.href = "login.html";
+  <style>
+  * {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
   }
-}
-</script>
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at center,
+      #a64a2f 0%,
+      #5a2a15 40%,
+      #120a05 75%,
+      #000 100%);
+    color: #fff;
+  }
+
+  .container {
+    max-width: 420px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .logo {
+    width: 180px;
+    margin: 40px auto 35px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0,0,0,.4);
+    cursor: pointer;
+  }
+
+  .discord { background: #5865f2; }
+  .play { background: #2e8b57; }
+  .dark { background: rgba(0,0,0,.6); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin: 30px 0;
+  }
+
+  .social a {
+    font-size: 26px;
+    color: #fff;
+    opacity: .9;
+  }
+
+  footer {
+    font-size: 11px;
+    opacity: .65;
+    line-height: 1.6;
+  }
+  </style>
+</head>
+
 <body>
-<a class="btn dark" onclick="logout()">
-  <i class="fa-solid fa-right-from-bracket"></i>
-  Logout
-</a>
+
   <div class="container">
 
-    <!-- LOGO -->
+    <!-- LOGOUT -->
+    <a class="btn dark" onclick="logoutConfirm()">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+    </a>
+
     <img src="logo.png" class="logo" alt="Server Logo">
 
-    <!-- BUTTONS -->
     <a class="btn discord">
       <i class="fa-brands fa-discord"></i>
       Join Our Discord
@@ -49,12 +118,10 @@ function logoutConfirm() {
       Play Now
     </a>
 
-    <!-- GRID -->
     <div class="grid">
-        <a href="get-started.html" class="btn dark">
-  <i class="fa-solid fa-book"></i>
-  Get Started
-</a>
+      <a href="get-started.html" class="btn dark">
+        <i class="fa-solid fa-book"></i>
+        Get Started
       </a>
 
       <a class="btn dark">
@@ -63,19 +130,17 @@ function logoutConfirm() {
       </a>
     </div>
 
-    <a class="btn dark full">
+    <a class="btn dark">
       <i class="fa-solid fa-book-open"></i>
       Server Guidance
     </a>
 
-    <!-- SOCIAL -->
     <div class="social">
       <a href="#"><i class="fa-brands fa-youtube"></i></a>
       <a href="#"><i class="fa-brands fa-instagram"></i></a>
       <a href="#"><i class="fa-solid fa-dollar-sign"></i></a>
     </div>
 
-    <!-- FOOTER -->
     <footer>
       GRAND THEFT AUTO is a registered trademark of Take-Two Interactive Software.  
       This server is not affiliated with or endorsed by Take-Two Interactive Software.
@@ -85,85 +150,15 @@ function logoutConfirm() {
 
   </div>
 
+  <!-- LOGOUT SCRIPT -->
+  <script>
+    function logoutConfirm() {
+      if (confirm("Yakin mau logout?")) {
+        localStorage.clear();
+        location.replace("login.html");
+      }
+    }
+  </script>
+
 </body>
 </html>
-<style>* {
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background:
-    radial-gradient(
-      circle at center,
-      #a64a2f 0%,
-      #5a2a15 40%,
-      #120a05 75%,
-      #000 100%
-    );
-  color: #fff;
-}
-
-/* CONTAINER */
-.container {
-  max-width: 420px;
-  margin: auto;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-/* LOGO */
-.logo {
-  width: 180px;
-  margin: 40px auto 35px;
-}
-
-/* BUTTON */
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 16px;
-  border-radius: 14px;
-  margin-bottom: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #fff;
-  box-shadow: 0 6px 12px rgba(0,0,0,.4);
-}
-
-/* COLORS */
-.discord { background: #5865f2; }
-.play { background: #2e8b57; }
-.dark { background: rgba(0,0,0,.6); }
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-/* SOCIAL */
-.social {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  margin: 30px 0;
-}
-
-.social a {
-  font-size: 26px;
-  color: #fff;
-  opacity: .9;
-}
-
-/* FOOTER */
-footer {
-  font-size: 11px;
-  opacity: .65;
-  line-height: 1.6;
-}</style>
