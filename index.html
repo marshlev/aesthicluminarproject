@@ -19,6 +19,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+function logoutConfirm() {
+  if (confirm("Yakin mau logout?")) {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("loginTime");
+    window.location.href = "login.html";
+  }
+}
+</script>
 <body>
 <a class="btn dark" onclick="logout()">
   <i class="fa-solid fa-right-from-bracket"></i>
