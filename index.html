@@ -3,206 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Server RP</title>
+  <title>Forum - GTA SAMP RP</title>
 
-  <!-- LOGIN PROTECT -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      if (localStorage.getItem("loggedIn") !== "true") {
-        window.location.href = "login.html";
-      }
-    });
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    function logout() {
-      localStorage.removeItem("loggedIn");
-      localStorage.removeItem("loginTime");
-      window.location.href = "login.html";
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body{
+      background:#0b0d10;
+      color:#e0e0e0;
+      font-family:'Segoe UI',Tahoma,sans-serif;
     }
-  </script>
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    /* ===== HEADER ===== */
+    .lunar-header{
+      position:relative;
+      height:170px;
+      background:
+        linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.9)),
+        url("https://media.discordapp.net/attachments/1052211816505286686/1459628688542011577/1768072615754.jpg");
+      background-size:cover;
+      background-position:center;
+    }
 
-  <!-- ICON -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    .lunar-icons{
+      position:absolute;
+      top:15px;
+      right:20px;
+      display:flex;
+      gap:16px;
+      font-size:20px;
+      color:#fff;
+    }
+
+    .lunar-icons i{
+      cursor:pointer;
+      opacity:.9;
+    }
+
+    .lunar-icons i:hover{
+      opacity:1;
+    }
+
+    .lunar-logo{
+      position:absolute;
+      bottom:20px;
+      left:20px;
+      font-size:42px;
+      font-weight:700;
+      color:#e50914;
+      letter-spacing:1px;
+    }
+
+    /* ===== ICON BG (HOME & SEARCH) ===== */
+    .icon-bg{
+      width:38px;
+      height:38px;
+      background-image:url("https://media.discordapp.net/attachments/1052211816505286686/1459628688542011577/1768072615754.jpg");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:6px;
+    }
+
+    .icon-bg i{
+      font-size:18px;
+      color:#fff;
+    }
+
+    /* ===== BREADCRUMB ===== */
+    .lunar-breadcrumb{
+      background:#a82432;
+      padding:12px 20px;
+      color:#fff;
+      font-weight:600;
+      clip-path:polygon(0 0,95% 0,100% 50%,95% 100%,0 100%);
+    }
+
+    /* ===== FORUM ===== */
+    .forum-section{
+      background:linear-gradient(135deg,#7b1e26,#a8323a);
+      border-radius:10px;
+      padding:12px 16px;
+      font-weight:600;
+      margin:25px 0 12px;
+    }
+
+    .forum-box{
+      background:#11141b;
+      border:1px solid #1f2330;
+      border-radius:14px;
+      padding:16px;
+      margin-bottom:12px;
+      transition:.25s;
+      cursor:pointer;
+    }
+
+    .forum-box:hover{
+      border-color:#7b1e26;
+      transform:translateY(-3px);
+    }
+
+    .forum-title{color:#fff;font-weight:600}
+    .forum-desc{color:#b5b5b5;font-size:.9rem}
+    .forum-meta{color:#888;font-size:.8rem}
+
+    /* ===== CHAT ===== */
+    .chatbox{
+      background:#0f1218;
+      border:1px solid #1f2330;
+      border-radius:14px;
+      padding:14px;
+      margin-bottom:20px;
+    }
+
+    .chat-msg{
+      display:flex;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .chat-avatar{
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      background:#1f2330;
+    }
+
+    .chat-user{font-weight:600}
+    .chat-time{font-size:.75rem;color:#777}
+    .chat-text{color:#ccc;font-size:.9rem}
+
+    .alert-permission{
+      background:#1a0f12;
+      border:1px solid #7b1e26;
+      color:#ff9da3;
+      font-size:.85rem;
+      border-radius:10px;
+      padding:10px;
+    }
+
+    a{text-decoration:none}
+  </style>
 </head>
 
 <body>
 
-  <!-- LOGOUT BUTTON -->
-  <a class="btn dark logout-btn" href="#" onclick="logout(); return false;">
-    <i class="fa-solid fa-right-from-bracket"></i>
-    Logout
-  </a>
+<!-- HEADER -->
+<div class="lunar-header">
+  <div class="lunar-icons">
 
-  <div class="container">
-
-    <!-- LOGO -->
-    <img src="https://i33.servimg.com/u/f33/20/60/19/21/lumina10.png"
-         class="logo"
-         alt="Lumina RP Logo">
-
-    <!-- BUTTONS -->
-    <a class="btn discord">
-      <i class="fa-brands fa-discord"></i>
-      Join Our Discord
-    </a>
-
-    <a class="btn play">
-      <i class="fa-solid fa-gamepad"></i>
-      Play Now
-    </a>
-
-    <!-- GRID -->
-    <div class="grid">
-      <a href="get-started.html" class="btn dark">
-        <i class="fa-solid fa-book"></i>
-        Get Started
-      </a>
-
-      <a class="btn dark">
-        <i class="fa-solid fa-globe"></i>
-        Forums
-      </a>
+    <div class="icon-bg">
+      <i class="fa-solid fa-house"></i>
     </div>
 
-    <a class="btn dark full">
-      <i class="fa-solid fa-book-open"></i>
-      Server Guidance
-    </a>
+    <i class="fa-regular fa-newspaper"></i>
 
-    <!-- SOCIAL -->
-    <div class="social">
-      <a href="#"><i class="fa-brands fa-youtube"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-solid fa-dollar-sign"></i></a>
+    <div class="icon-bg">
+      <i class="fa-solid fa-magnifying-glass"></i>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-      GRAND THEFT AUTO is a registered trademark of Take-Two Interactive Software.  
-      This server is not affiliated with or endorsed by Take-Two Interactive Software.
-      <br><br>
-      © 2026 Your Server RP
-    </footer>
+    <i class="fa-solid fa-toggle-on"></i>
+    <i class="fa-solid fa-bars"></i>
 
   </div>
 
+  <div class="lunar-logo">SAMP RP</div>
+</div>
+
+<div class="lunar-breadcrumb">Home</div>
+
+<div class="container my-4">
+
+  <div class="forum-section">Chatbox</div>
+  <div class="chatbox">
+
+    <div class="chat-msg">
+      <div class="chat-avatar"></div>
+      <div>
+        <div class="chat-user text-warning">
+          Alvero13 <span class="chat-time">• 4 Jan 03:28</span>
+        </div>
+        <div class="chat-text">lunar</div>
+      </div>
+    </div>
+
+    <div class="chat-msg">
+      <div class="chat-avatar"></div>
+      <div>
+        <div class="chat-user text-success">
+          BastianOmaga <span class="chat-time">• 8 Jan 08:28</span>
+        </div>
+        <div class="chat-text">LUNARKAN</div>
+      </div>
+    </div>
+
+    <div class="alert-permission mt-3">
+      ⚠ You do not have permission to chat. Only <b>donator</b> group can access this feature.
+    </div>
+
+  </div>
+
+  <div class="forum-section">Information Luminar</div>
+  <div class="forum-box">
+    <div class="forum-title">Server Information</div>
+    <div class="forum-desc">Information, Donations, Partnership</div>
+    <div class="forum-meta">13 posts</div>
+  </div>
+
+  <div class="forum-section">In Game Support</div>
+  <div class="forum-box">
+    <div class="forum-title">Help & Report</div>
+    <div class="forum-desc">Bug report & player help</div>
+    <div class="forum-meta">Admin response only</div>
+  </div>
+
+  <div class="forum-section">Faction Link</div>
+  <div class="forum-box">
+    <div class="forum-title">Goodside Faction</div>
+    <div class="forum-desc">Police, Government, Medical</div>
+  </div>
+
+  <div class="forum-box">
+    <div class="forum-title">Badside Faction</div>
+    <div class="forum-desc">Mafia, Gang, Criminal</div>
+  </div>
+
+</div>
+
 </body>
 </html>
-
-<style>
-* {
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* BACKGROUND */
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
-}
-
-/* POLICE SIREN */
-body::before {
-  content: "";
-  position: fixed;
-  inset: -30%;
-  background:
-    radial-gradient(circle at 20% 40%, rgba(255, 0, 0, 0.75), transparent 40%),
-    radial-gradient(circle at 80% 40%, rgba(0, 120, 255, 0.75), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(255, 220, 0, 0.45), transparent 45%),
-    radial-gradient(circle at 30% 70%, rgba(0, 255, 170, 0.45), transparent 45%);
-  animation: sirenFlash 4s ease-in-out infinite alternate;
-  filter: blur(30px);
-  z-index: -2;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: -1;
-}
-
-@keyframes sirenFlash {
-  0% { transform: translate(-8%, 0) scale(1); opacity: .9; }
-  50% { transform: translate(8%, -5%) scale(1.15); opacity: 1; }
-  100% { transform: translate(-5%, 6%) scale(1.2); opacity: .95; }
-}
-
-/* CONTAINER */
-.container {
-  max-width: 420px;
-  margin: auto;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-/* LOGO */
-.logo {
-  width: 170px;
-  margin: 30px auto 35px;
-  display: block;
-  filter: drop-shadow(0 0 25px rgba(255,140,0,.6));
-}
-
-/* BUTTON */
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 16px;
-  border-radius: 14px;
-  margin-bottom: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #fff;
-  box-shadow: 0 6px 12px rgba(0,0,0,.4);
-}
-
-.discord { background: #5865f2; }
-.play { background: #2e8b57; }
-.dark { background: rgba(0,0,0,.6); }
-
-/* LOGOUT */
-.logout-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-/* SOCIAL */
-.social {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  margin: 30px 0;
-}
-
-.social a {
-  font-size: 26px;
-  color: #fff;
-  opacity: .9;
-}
-
-/* FOOTER */
-footer {
-  font-size: 11px;
-  opacity: .65;
-  line-height: 1.6;
-}
-</style>
